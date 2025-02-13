@@ -16,7 +16,7 @@ export default function EditProfileForm() {
           onChange={handleChange}
           type="text"
           
-          className="dark:bg-black dark:text-white dark:placeholder:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-muted-foreground"
           value={profile?.fullname}
           name="fullname"
           id="fullname"
@@ -29,7 +29,7 @@ export default function EditProfileForm() {
           onChange={handleChange}
           type="text"
           
-          className="dark:bg-black dark:text-white dark:placeholder:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-muted-foreground"
           value={profile?.username}
           name="username"
           id="username"
@@ -43,7 +43,7 @@ export default function EditProfileForm() {
           onChange={handleChange}
           type="password"
           
-          className="dark:bg-black dark:text-white dark:placeholder:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-muted-foreground"
           name="password"
           value={profile?.password}
           id="password"
