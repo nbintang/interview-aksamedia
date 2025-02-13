@@ -15,7 +15,7 @@ export default function CreateProductForm() {
         <Input
           type="text"
           id="name"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           placeholder="Product Name"
           name="name"
           onChange={handleChange}
@@ -32,7 +32,7 @@ export default function CreateProductForm() {
           type="number"
           id="price"
           name="price"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           placeholder="Product Price"
           onChange={handleChange}
           step="0.01"
@@ -45,7 +45,7 @@ export default function CreateProductForm() {
         </Label>
         <Input
           type="number"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           name="stock"
           id="stock"
           onChange={handleChange}
@@ -65,7 +65,7 @@ export default function CreateProductForm() {
         </div>
         <Textarea
           id="description"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           placeholder="Product Description"
           name="description"
           onChange={handleChange}

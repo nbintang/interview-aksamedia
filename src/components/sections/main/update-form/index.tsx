@@ -16,7 +16,7 @@ export default function UpdateProductForm() {
           type="text"
           id="name"
           name="name"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           value={product?.name}
           placeholder="Product Name"
           onChange={handleChange}
@@ -36,7 +36,7 @@ export default function UpdateProductForm() {
           value={product?.price}
           onChange={handleChange}
           placeholder="Product Price"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           step="0.01"
           min="0"
         />
@@ -50,7 +50,7 @@ export default function UpdateProductForm() {
           name="stock"
           id="stock"
           placeholder="Product Stock"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           value={product?.stock}
           onChange={handleChange}
           step="1"
@@ -70,7 +70,7 @@ export default function UpdateProductForm() {
           id="description"
           placeholder="Product Description"
           name="description"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           value={product?.description}
           onChange={handleChange}
         />

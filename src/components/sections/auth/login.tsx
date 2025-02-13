@@ -16,7 +16,7 @@ export default function LoginForm() {
           onChange={handleChange}
           type="text"
           name="username"
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           id="username"
           placeholder="Type your username"
         />
@@ -27,7 +27,7 @@ export default function LoginForm() {
           onChange={handleChange}
           type="password"
           
-          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          className="dark:bg-black dark:text-white dark:placeholder:text-white"
           name="password"
           id="password"
           placeholder="Type your password"
