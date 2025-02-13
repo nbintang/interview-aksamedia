@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./button/variants";
 import { Button } from "./button";
-import { useTheme } from "@/hooks/useTheme";
+import useGetCurrentThemeForButton from "@/hooks/useGetCurrentTheme";
 
 export type DropdownItemProps = {
   label: string;
@@ -15,14 +15,14 @@ interface DropdownMenuProps {
   items: DropdownItemProps[];
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
 
   items,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-const {theme} = useTheme()
+  const theme = useGetCurrentThemeForButton();
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -44,7 +44,10 @@ const {theme} = useTheme()
         <div
           className={cn(
             "dark:hover:bg-primary hover:bg-white",
-            buttonVariants({ variant: theme === "light" ? "ghost" : "default", size: "icon" })
+            buttonVariants({
+             variant: theme,
+              size: "icon",
+            })
           )}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -52,7 +55,10 @@ const {theme} = useTheme()
         </div>
       </div>
       {isOpen && (
-        <div className="absolute right-0 z-[9999] mt-2 w-56  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className={cn(
+          "absolute right-0 z-[9999] mt-2 w-56 -translate-y-4 origin-top-right rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+          "dark:bg-primary bg-white"
+        )}>
           <div className="py-1  ">
             {items.map((item, index) => (
               <Button
@@ -61,7 +67,7 @@ const {theme} = useTheme()
                   item.onClick();
                   setIsOpen(false);
                 }}
-                variant={theme === "light" ? "ghost" : "secondary"}
+                variant={theme}
                 className={cn(
                   item.className,
                   "w-full flex items-center justify-start"
@@ -77,3 +83,5 @@ const {theme} = useTheme()
     </div>
   );
 };
+
+export default DropdownMenu;

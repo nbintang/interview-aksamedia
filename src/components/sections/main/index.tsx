@@ -1,15 +1,14 @@
-
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import DropdownMenu from "@/components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { ProductProps } from "@/hooks/products/useManageProducts";
+import { formatCurrency } from "@/lib/format";
 import { PencilIcon, SquarePen, Trash } from "lucide-react";
 import { useNavigate } from "react-router";
 
@@ -21,12 +20,10 @@ export function Main({
   handleDelete: (id: number) => void;
 }) {
   const navigate = useNavigate();
+
   return (
     <>
-      <Table className="border rounded overflow-visible  ">
-        <TableCaption className="h-[100px]">
-          A list of your recent Products.
-        </TableCaption>
+      <Table className="border rounded w-full   ">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">ID</TableHead>
@@ -42,15 +39,15 @@ export function Main({
               <TableRow key={product.id}>
                 <TableCell className="font-medium">{product.id}</TableCell>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.price}</TableCell>
+                <TableCell>{formatCurrency(product.price)}</TableCell>
                 <TableCell>{product.stock}</TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-right ">
                   <DropdownMenu
                     trigger={
-                   <>
+                      <>
                         <span className="sr-only">Open menu</span>
                         <SquarePen className="h-4 w-4" />
-                   </>
+                      </>
                     }
                     items={[
                       {

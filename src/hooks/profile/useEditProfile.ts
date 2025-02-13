@@ -31,16 +31,16 @@ const useUpdateProfile = () => {
     if (!formData) return;
     const validatedFields = userValidationForm(
       formData.username,
-      formData.password
+      formData.password,
+      formData?.fullname ?? "User",
     );
     if (!validatedFields) {
       setError("All fields must be at least 6 characters long");
       return;
     }
     setError(null);
-    const { username, password } = formData;
     // simpan di local storeg
-    localStorage.setItem("user", JSON.stringify({ username, password }));
+    localStorage.setItem("user", JSON.stringify({  ...formData }));
     // redirect jika sudah tersimpan
     navigate("/");
   };

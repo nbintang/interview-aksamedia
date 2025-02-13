@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/card";
 export default function Profile() {
   return (
-    <main className="mx-auto grid min-h-[calc(80vh-3rem)] place-items-center container">
-      <Card className="lg:w-[350px] w-full  border-0 lg:border shadow-none lg:shadow">
+    <main className="mx-auto grid md:min-h-[calc(80vh-100px)] place-items-center container">
+      <Card className="lg:w-[350px] w-full dark:bg-black  border-0 lg:border shadow-none lg:shadow">
         <CardHeader>
-          <CardTitle>Edit your account</CardTitle>
+          <CardTitle className="dark:text-white text-black" >Edit your account</CardTitle>
           <CardDescription>
             Please fill in the form below to edit your account
           </CardDescription>

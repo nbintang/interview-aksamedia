@@ -11,10 +11,25 @@ export default function EditProfileForm() {
       className="flex flex-col [&>div]:flex [&>div]:flex-col [&>div]:space-y-2 space-y-4 "
     >
       <div>
-        <Label htmlFor="username">Username</Label>
+        <Label htmlFor="fullname" className="dark:text-white" >Fullname</Label>
         <Input
           onChange={handleChange}
           type="text"
+          
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          value={profile?.fullname}
+          name="fullname"
+          id="fullname"
+          placeholder="Type your fullname"
+        />
+      </div>
+      <div>
+        <Label htmlFor="username" className="dark:text-white" >Username</Label>
+        <Input
+          onChange={handleChange}
+          type="text"
+          
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
           value={profile?.username}
           name="username"
           id="username"
@@ -22,11 +37,13 @@ export default function EditProfileForm() {
         />
       </div>
       <div>
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password" className="dark:text-white"> Password</Label>
  
         <Input
           onChange={handleChange}
           type="password"
+          
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
           name="password"
           value={profile?.password}
           id="password"
@@ -36,7 +53,7 @@ export default function EditProfileForm() {
                <p className="text-muted-foreground text-xs">password cannot be changed</p>
       </div>
       <span className="text-destructive text-sm">{error}</span>
-      <Button type="submit">Login</Button>
+      <Button type="submit" >Update Profile</Button>
     </form>
   );
 }

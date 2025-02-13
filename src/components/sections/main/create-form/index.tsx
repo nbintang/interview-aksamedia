@@ -8,54 +8,73 @@ export default function CreateProductForm() {
   const { handleSubmit, handleChange, error } = useCreateProducts();
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto [&>*]:mb-4">
-      <div >
-        <Label htmlFor="name" >
+      <div>
+        <Label htmlFor="name" className="dark:text-white">
           Name:
         </Label>
         <Input
           type="text"
           id="name"
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          placeholder="Product Name"
           name="name"
           onChange={handleChange}
         />
       </div>
-      <div >
-        <Label htmlFor="price">
-          Price:
-        </Label>
+      <div>
+        <div className="mb-2">
+          <Label htmlFor="price" className="dark:text-white">
+            Price:
+          </Label>
+          <p className="text-xs text-muted-foreground"> In Dollar ($)</p>
+        </div>
         <Input
           type="number"
           id="price"
           name="price"
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          placeholder="Product Price"
           onChange={handleChange}
           step="0.01"
           min="0"
         />
       </div>
-      <div >
-        <Label htmlFor="stock" >
+      <div>
+        <Label htmlFor="stock" className="dark:text-white">
           Price:
         </Label>
         <Input
           type="number"
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
           name="stock"
           id="stock"
           onChange={handleChange}
           step="1"
+          placeholder="Product Stock"
           min="0"
         />
       </div>
-      <div >
+      <div>
         <div className="mb-2">
-          <Label htmlFor="description">Description:</Label>
+          <Label htmlFor="description" className="dark:text-white">
+            Description:
+          </Label>
           <p className="text-xs text-muted-foreground">
             Description is Optional.
           </p>
         </div>
-        <Textarea id="description" name="description" onChange={handleChange} />
+        <Textarea
+          id="description"
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
+          placeholder="Product Description"
+          name="description"
+          onChange={handleChange}
+        />
       </div>
       {error && <p className="text-destructive text-sm">{error}</p>}
-      <Button type="submit" className={cn("w-full lg:w-auto")}>Add Product</Button>
+      <Button type="submit" className={cn("w-full lg:w-auto")}>
+        Add Product
+      </Button>
     </form>
   );
 }

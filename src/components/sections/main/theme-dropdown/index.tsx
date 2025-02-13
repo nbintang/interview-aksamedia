@@ -1,4 +1,4 @@
-import { DropdownItemProps, DropdownMenu } from "@/components/ui/dropdown-menu";
+import DropdownMenu, { DropdownItemProps } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/hooks/useTheme";
 import { MoonIcon, CogIcon, SunIcon } from "lucide-react";
 

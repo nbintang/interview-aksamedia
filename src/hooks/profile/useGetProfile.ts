@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useNavigate } from "react-router";
 export type UserProps = {
+  id: number;
+  fullname?: string;
   username: string;
   password: string;
-} ;
+};
 export default function useGetProfile(): UserProps | null {
   //ambil data dari local storeg
   const navigate = useNavigate();

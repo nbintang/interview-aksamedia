@@ -11,20 +11,23 @@ export default function LoginForm() {
       className="flex flex-col [&>div]:flex [&>div]:flex-col [&>div]:space-y-2 space-y-4 "
     >
       <div>
-        <Label htmlFor="username">Username</Label>
+        <Label htmlFor="username" className="dark:text-white">Username</Label>
         <Input
           onChange={handleChange}
           type="text"
           name="username"
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
           id="username"
           placeholder="Type your username"
         />
       </div>
       <div>
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password" className="dark:text-white">Password</Label>
         <Input
           onChange={handleChange}
           type="password"
+          
+          className="dark:bg-black dark:text-white placeholder:dark:text-white"
           name="password"
           id="password"
           placeholder="Type your password"

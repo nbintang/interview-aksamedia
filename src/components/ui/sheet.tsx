@@ -57,7 +57,7 @@ const SheetContext = React.createContext<SheetContextType | undefined>(
   undefined
 );
 
-const useSheet = () => {
+ const useSheet = () => {
   const context = React.useContext(SheetContext);
   if (!context) {
     throw new Error("Sheet components must be wrapped in <Sheet />");
