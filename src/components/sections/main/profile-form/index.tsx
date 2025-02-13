@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import useLoginForm from "@/hooks/auth/useLoginForm";
+import useUpdateProfile from "@/hooks/profile/useEditProfile";
 
-export default function LoginForm() {
-  const { error, handleChange, handleSubmit } = useLoginForm();
+export default function EditProfileForm() {
+  const { error, handleChange, handleSubmit, profile } = useUpdateProfile();
   return (
     <form
       onSubmit={handleSubmit}
@@ -15,6 +15,7 @@ export default function LoginForm() {
         <Input
           onChange={handleChange}
           type="text"
+          value={profile?.username}
           name="username"
           id="username"
           placeholder="Type your username"
@@ -22,13 +23,17 @@ export default function LoginForm() {
       </div>
       <div>
         <Label htmlFor="password">Password</Label>
+ 
         <Input
           onChange={handleChange}
           type="password"
           name="password"
+          value={profile?.password}
           id="password"
           placeholder="Type your password"
+          disabled
         />
+               <p className="text-muted-foreground text-xs">password cannot be changed</p>
       </div>
       <span className="text-destructive text-sm">{error}</span>
       <Button type="submit">Login</Button>

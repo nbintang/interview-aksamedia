@@ -9,7 +9,7 @@ import {
 export default function LoginPages() {
   return (
     <main className="grid min-h-screen place-items-center">
-      <Card className="lg:w-[350px] w-full">
+      <Card className="lg:w-[350px] w-full  border-0 lg:border shadow-none lg:shadow">
         <CardHeader>
           <CardTitle>Login to your account!</CardTitle>
           <CardDescription>
@@ -17,6 +17,7 @@ export default function LoginPages() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+       
             <LoginForm/>
         </CardContent>
       </Card>

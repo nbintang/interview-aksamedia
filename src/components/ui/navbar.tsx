@@ -1,40 +1,22 @@
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
-import { MenuIcon, MoonIcon, MountainIcon, SunIcon } from "lucide-react";
-import { Link, useNavigate } from "react-router";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import { MenuIcon, MountainIcon } from "lucide-react";
+import { Link } from "react-router";
 import { useTheme } from "@/hooks/useTheme";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button/variants";
-import useGetUser from "@/hooks/useGetUser";
-
+import ProfileDropdown from "../sections/main/profile-dropdown";
+import ThemeDropdown from "../sections/main/theme-dropdown";
 const navList = [
   { label: "Home", href: "/" },
   { label: "Profile", href: "/profile" },
 ];
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const user = useGetUser();
-  const navigate = useNavigate();
-  const dropdownItems = [
-    { label: "Light", onClick: () => setTheme("light") },
-    { label: "Dark", onClick: () => setTheme("dark") },
-    { label: "Auto", onClick: () => setTheme("auto") },
-  ];
-
-  const dropdownUser = [
-    { label: user!.username, onClick: () => navigate("/profile") },
-    {
-      label: "Logout",
-      onClick: () => {
-        localStorage.removeItem("user");
-        navigate("/login");
-      },
-    },
-  ];
+  const { theme } = useTheme();
 
   return (
     <header className="flex border-b shadow h-20 w-full shrink-0 items-center px-4 md:px-6">
+      {/* Mobile navigation */}
       <Sheet>
         <SheetTrigger>
           <div
@@ -70,6 +52,7 @@ export default function Navbar() {
           </div>
         </SheetContent>
       </Sheet>
+      {/* Desktop navigation */}
       <Link to="#" className="mr-6 hidden lg:flex">
         <MountainIcon className="h-6 w-6 text-primary dark:text-secondary " />
         <span className="sr-only">Acme Inc</span>
@@ -92,29 +75,8 @@ export default function Navbar() {
           ))}
         </nav>
         <div className=" flex items-center gap-x-3">
-          <DropdownMenu
-            trigger={
-              <div>
-                <img src="/user.jpeg" alt="" className="rounded-full" />
-              </div>
-            }
-            items={dropdownUser}
-          />
-          <DropdownMenu
-            trigger={
-              <div>
-                {
-                  //change icon based on theme
-                  theme === "light" ? (
-                    <SunIcon className="h-6 w-6 text-primary dark:text-secondary " />
-                  ) : (
-                    <MoonIcon className="h-6 w-6 text-primary dark:text-secondary " />
-                  )
-                }
-              </div>
-            }
-            items={dropdownItems}
-          />
+          <ProfileDropdown />
+          <ThemeDropdown />
         </div>
       </div>
     </header>

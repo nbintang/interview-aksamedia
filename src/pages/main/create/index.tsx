@@ -1,4 +1,4 @@
-import CreateProductForm from "@/components/sections/main/create";
+import CreateProductForm from "@/components/sections/main/create-form";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function CreateProduct() {

@@ -1,20 +1,28 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./button/variants";
+import { Button } from "./button";
+import { useTheme } from "@/hooks/useTheme";
 
+export type DropdownItemProps = {
+  label: string;
+  onClick: () => void;
+  className?: string;
+  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
 interface DropdownMenuProps {
   trigger: React.ReactNode;
-
-  items: { label: string; onClick: () => void }[];
+  items: DropdownItemProps[];
 }
 
 export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
+
   items,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-
+const {theme} = useTheme()
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -31,12 +39,12 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
   }, []);
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
+    <div className="relative inline-block text-left " ref={dropdownRef}>
       <div>
         <div
           className={cn(
             "dark:hover:bg-primary hover:bg-white",
-            buttonVariants({ variant: "ghost", size: "icon" })
+            buttonVariants({ variant: theme === "light" ? "ghost" : "default", size: "icon" })
           )}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -44,23 +52,24 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         </div>
       </div>
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
+        <div className="absolute right-0 z-[9999] mt-2 w-56  origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1  ">
             {items.map((item, index) => (
-              <button
+              <Button
                 key={index}
                 onClick={() => {
                   item.onClick();
                   setIsOpen(false);
                 }}
+                variant={theme === "light" ? "ghost" : "secondary"}
                 className={cn(
-                  "block w-full px-4 py-2 text-left text-sm",
-                  "hover:bg-gray-100 hover:text-gray-900",
-                  "focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                  item.className,
+                  "w-full flex items-center justify-start"
                 )}
               >
+                {item.Icon && <item.Icon className="mr-2 h-5 w-5" />}
                 {item.label}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

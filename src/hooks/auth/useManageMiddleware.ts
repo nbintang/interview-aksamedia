@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 export default function useManageMiddleware() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isChecking, setIsChecking] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(true);
   const exceptedPath = ["/login"];
   const hideNavbar = exceptedPath.includes(location.pathname);
   React.useEffect(() => {
@@ -14,10 +14,10 @@ export default function useManageMiddleware() {
     } else if (user && location.pathname === "/login") {
       navigate("/", { replace: true });
     }
-    setIsChecking(false);
+    setIsLogin(false);
   }, [navigate, location.pathname]);
   return {
     hideNavbar,
-    isChecking,
+    isChecking: isLogin,
   };
 }

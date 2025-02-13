@@ -1,5 +1,5 @@
 import * as React from "react";
-import { validationForm } from "@/lib/validation";
+import { userValidationForm } from "@/lib/validation";
 import { useNavigate } from "react-router";
 
 const useLoginForm = () => {
@@ -24,7 +24,7 @@ const useLoginForm = () => {
       setError("Please fill in all fields");
       return;
     }
-    const validatedFields = validationForm(
+    const validatedFields = userValidationForm(
       formData.username,
       formData.password
     );
