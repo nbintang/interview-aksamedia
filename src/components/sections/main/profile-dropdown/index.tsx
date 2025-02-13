@@ -24,7 +24,8 @@ export default function ProfileDropdown() {
     },
   ];
   return (
-    <DropdownMenu
+    <DropdownMenu 
+    className="mt-4"
       trigger={
         <div className="flex flex-col items-center">
           <img
@@ -32,7 +33,7 @@ export default function ProfileDropdown() {
             alt={profile?.username ?? ""}
             className="rounded-full w-9 h-9"
           />
-          <span>{profile?.fullname ?? profile?.username ?? "User"}</span>
+          <span className="text-xs text-muted-foreground ">{profile?.fullname ?? profile?.username ?? "User"}</span>
         </div>
       }
       items={dropDownItems}

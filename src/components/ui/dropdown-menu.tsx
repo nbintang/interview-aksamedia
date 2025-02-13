@@ -12,12 +12,13 @@ export type DropdownItemProps = {
 };
 interface DropdownMenuProps {
   trigger: React.ReactNode;
+  className?: string;
   items: DropdownItemProps[];
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   trigger,
-
+className,
   items,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -39,7 +40,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   }, []);
 
   return (
-    <div className="relative inline-block text-left " ref={dropdownRef}>
+    <div className={cn("relative inline-block text-left ",className)} ref={dropdownRef}>
       <div>
         <div
           className={cn(
