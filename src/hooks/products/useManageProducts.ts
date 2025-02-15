@@ -1,13 +1,7 @@
 import * as React from "react";
 import useGetProducts from "./useGetProducts";
 import { useSearchParams } from "react-router";
-export type ProductProps = {
-  id: number;
-  name: string;
-  price: number;
-  stock: number;
-  description: string;
-};
+
 const useManageProducts = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { products, setProducts } = useGetProducts();

@@ -1,4 +1,5 @@
-import { ProductProps } from "@/hooks/products/useManageProducts";
+import { ProductProps } from '../../types/product';
+
 
 export const userValidationForm = (username: string, password: string, fullname: string) => {
   if (username.length >= 6 && password.length >= 6) {

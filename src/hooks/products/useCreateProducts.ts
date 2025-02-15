@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router";
-import { ProductProps } from "./useManageProducts";
 import { productsValidationForm } from "@/lib/validation";
+import { ProductProps } from "types/product";
 const useCreateProducts = () => {
   const [formData, setFormData] = React.useState<ProductProps>({
     id: Math.floor(Math.random() * 1000),

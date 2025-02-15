@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useParams } from "react-router";
-import { ProductProps } from "./useManageProducts";
+import { ProductProps } from "types/product";
 const useGetProductById = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState<ProductProps>();

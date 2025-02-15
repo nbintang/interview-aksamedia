@@ -1,7 +1,8 @@
 import React from "react";
-import useGetProfile, { UserProps } from "./useGetProfile";
+import useGetProfile from "./useGetProfile";
 import { userValidationForm } from "@/lib/validation";
 import { useNavigate } from "react-router";
+import { UserProps } from "types/user";
 
 const useUpdateProfile = () => {
   const profile = useGetProfile();

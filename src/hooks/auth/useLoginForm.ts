@@ -1,8 +1,7 @@
 import * as React from "react";
 import { userValidationForm } from "@/lib/validation";
 import { useNavigate } from "react-router";
-import { UserProps } from "../profile/useGetProfile";
-
+import { UserProps } from "types/user";
 const useLoginForm = () => {
   const [formData, setFormData] = React.useState<UserProps>({
     id: Math.round(Math.random() * 1000),

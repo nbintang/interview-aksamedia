@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useNavigate } from "react-router";
-import { ProductProps } from "./useManageProducts";
 import { productsValidationForm } from "@/lib/validation";
 import useGetProductById from "./useGetProductById";
+import { ProductProps } from "types/product";
 
 const useUpdateProducts = () => {
   const product = useGetProductById();

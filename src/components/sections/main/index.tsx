@@ -7,10 +7,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ProductProps } from "@/hooks/products/useManageProducts";
 import { formatCurrency } from "@/lib/format";
 import { PencilIcon, SquarePen, Trash } from "lucide-react";
 import { useNavigate } from "react-router";
+import { ProductProps } from "types/product";
 
 export function Main({
   products,

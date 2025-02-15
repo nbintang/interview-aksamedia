@@ -21,6 +21,7 @@ export default function ProfileDropdown() {
         navigate("/login");
       },
       Icon: LogOutIcon,
+      
     },
   ];
   return (
